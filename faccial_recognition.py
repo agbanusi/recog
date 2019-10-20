@@ -99,9 +99,9 @@ def member():
             mem.remove(data_member[i]+'/'+'Thumbs.db')
         embeddings2 = get_embeddings(mem)
         embedding.append(embeddings2)
-    # save the model to disk
-    eet = 'embedd.sav'
-    pickle.dump(embeddings, open(eet, 'wb'))
+    # save the model to disk, using .sav or .pkl extension
+    ef = 'embedd.pkl'
+    pickle.dump(embeddings, open(ef, 'wb'))
     return embedding
 #visitor check
 def visitor():
@@ -113,8 +113,8 @@ def visitor():
             vis.remove(data_member[i]+'/'+'Thumbs.db')
         embeddings2 = get_embeddings(vis)
         embeddings.append(embeddings2)
-    ef = 'embed.sav'
-    pickle.dump(embeddings, open(ef, 'wb'))
+    eet = 'embed.pkl'
+    pickle.dump(embeddings, open(eet, 'wb'))
     return embeddings
 def add_visitor_embedding(filenames):
     visitor()
