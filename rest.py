@@ -11,7 +11,7 @@ api = Api(app)
 @app.route('/', methods = 'POST')
 def head():
     return (<h1> 'Testing the api' </h1>)
-@app.route('/',methods = ['GET','POST'])
+@app.route('/predict',methods = ['GET','POST'])
 def get():
     if request.method == 'POST':
         data=request.form.get('text')
