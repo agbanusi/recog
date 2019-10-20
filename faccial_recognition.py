@@ -117,18 +117,24 @@ def visitor():
     pickle.dump(embeddings, open(ef, 'wb'))
     return embeddings
 def add_visitor_embedding(filenames):
+    visitor()
     g = pickle.load(open(eet, 'rb'))
     g.append(get_embeddings(filenames))
+    pickle.dump(g,open(eet, 'wb'))
     return g
 def add_member_embedding(filenames):
+    member()
     h =  pickle.load(open(ef, 'rb'))
     h.append(get_embeddings(filenames))
+    pickle.dump(h,open(ef, 'wb'))
     return h
+member()
+visitor()
 #test the embeddings
 def check():
         embeddings1 = cam()
         hue = 0
-        embed = member()
+        embed = pickle.load(open(ef, 'rb'))
         for i in range(len(data_member)):
             for j in range(len(embed[i])):
                 score = is_match(embed[i][j], embeddings1)
@@ -143,7 +149,7 @@ def check():
                 chek = 1
                 break
         if chek != 1:
-            embedd = visitor()
+            embedd = pickle.load(open(eet, 'rb'))
             huet = 0
             for i in range(len(data_visitor)):
                 for j in range(len(embedd[i])):
