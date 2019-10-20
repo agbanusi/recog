@@ -22,10 +22,12 @@ def get():
         if data == 'add embeddings':
             dat = request.form.get('which addition?')
             if dat == 'visitor':
-                facial_recognition.add_visitor_embedding()
+                d = request.form.get('the file directory/filename')
+                facial_recognition.add_visitor_embedding(d)
                 result = 'done!'
             elif dat == 'member':
-                facial_recognition.add_member_embedding()
+                e = request.form.get('the file directory/filename')
+                facial_recognition.add_member_embedding(e)
                 result = 'done!'
             else:
                 None
