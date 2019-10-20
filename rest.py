@@ -8,8 +8,11 @@ CORS(app)
 api = Api(app)
 
 #port = int(os.getenv('PORT', 8080)) 
+@app.route('/', methods = 'POST')
+def head():
+    return (<h1> 'Testing the api' </h1>)
 @app.route('/',methods = ['GET','POST'])
-def get(self):
+def get():
     if request.method == 'POST':
         data=request.form.get('text')
         facial_recognition()
@@ -20,13 +23,14 @@ def get(self):
             dat = request.form.get('which addition?')
             if dat == 'visitor':
                 facial_recognition.add_visitor_embedding()
-                print('done!')
+                result = 'done!'
             elif dat == 'member':
                 facial_recognition.add_member_embedding()
-                print('done!')
+                result = 'done!'
             else:
                 None
-                print('Not Allowed!')
+                result = 'Not Allowed!'
+        return result
         
     return {'data': result}
 
