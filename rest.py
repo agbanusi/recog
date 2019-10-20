@@ -30,7 +30,6 @@ def get():
                 facial_recognition.add_member_embedding(e)
                 result = 'done!'
             else:
-                None
                 result = 'Not Allowed!'
         return result
         
